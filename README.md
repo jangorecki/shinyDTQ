@@ -12,7 +12,10 @@ library(data.table) # optional: install_github("jangorecki/data.table",ref="timi
 DT = data.table(x = 1:4, y = letters[1:4], key="x")
 jn = data.table(x = 2:4, z = c(TRUE,FALSE,TRUE), key="x")
 options("datatable.timing"=TRUE) # optional
-DT[, list(x,y=paste(y,y,sep="_"))][x %in% c(1:4),list(x,y)][jn[z==TRUE],nomatch=0L][,list(x,y,z)]
+DT[, list(x,y=paste(y,y,sep="_"))
+   ][x %in% c(1:4), list(x,y)
+     ][jn[z==TRUE], nomatch=0L
+       ][, list(x,y,z)]
 
 ## if you are not using data.table@timing branch you need to prepare the call for shiny app by wrapping into `.dtq = quote()` function
 .dtq = quote(DT[, list(x,y=paste(y,y,sep="_"))][x %in% c(1:4),list(x,y)][jn[z==TRUE],nomatch=0L][,list(x,y,z)])
