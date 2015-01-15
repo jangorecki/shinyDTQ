@@ -18,7 +18,7 @@ DT[, list(x,y=paste(y,y,sep="_"))][x %in% c(1:4),list(x,y)][jn[z==TRUE],nomatch=
 .dtq = quote(DT[, list(x,y=paste(y,y,sep="_"))][x %in% c(1:4),list(x,y)][jn[z==TRUE],nomatch=0L][,list(x,y,z)])
 
 # runApp from github
-shiny:: runGitHub("jangorecki/shinyDTQ")
+runGitHub("jangorecki/shinyDTQ")
 # or locally after: git clone https://github.com/jangorecki/shinyDTQ.git
-shiny::runApp(appDir)
+runApp(appDir)
 ```
